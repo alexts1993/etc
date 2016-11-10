@@ -9,3 +9,10 @@ git remote add origin https://scuzzlebuzzle:<MYTOKEN>@github.com/scuzzlebuzzle/o
 
 *set remote url or/and branch for default  push/pull(git push/pull)
 git branch --set-upstream-to=origin/master
+
+
+*save credential to a plain file
+git config --global credential.helper store
+*save credential to windows credential manager
+git config --global credential.helper wincred
+
