@@ -1,0 +1,3 @@
+modify the most recent commit message after PUSH
+git commit --amend -m "new commit message"
+git push --forece origin <branch-name>
