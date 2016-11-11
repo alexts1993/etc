@@ -16,3 +16,6 @@ git config --global credential.helper store
 *save credential to windows credential manager
 git config --global credential.helper wincred
 
+
+*git alias command
+git config --global alias.co checkout
