@@ -17,5 +17,5 @@ git config --global credential.helper store
 git config --global credential.helper wincred
 
 
-*git alias command
+*git alias, make it easier to run a command
 git config --global alias.co checkout
