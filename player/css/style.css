@@ -1,0 +1,30 @@
+.control-panel{
+	    width: 500px;
+		text-align: center;
+		background: #ddddda;
+		border: 1px solid #ddddda;
+		border-radius: 2px;
+		height: 50px;
+		line-height: 50px;
+   }
+   .icon-play:before{
+		padding-left: 4px;
+		padding-top: 5px;
+   }
+   .icon-backward:before{
+		padding-right: 4px;
+		padding-top: 5px;
+   }
+   .icon-forward:before{
+		padding-left: 4px;
+		padding-top: 5px;
+   }
+   .play-control-button{
+	color:gray;
+	border:3px solid #808e97;
+	border-radius:100%;
+	display:inline-block;
+	width:25px;
+	height:25px;
+	font-size:15px
+   }
