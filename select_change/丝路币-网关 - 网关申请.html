@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-1.12.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<!---------------------------head---------------------------->
+
+
+<body>
+<style>
+.moenytype{vertical-align: top;}
+.moenytype label{
+    margin-right: 15px;
+    cursor: pointer;
+	font-weight:normal;
+	}
+.moenytype input{
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-right: 3px;	
+	}
+
+small.help-block{
+	margin-left:110px;
+	}
+
+
+.withdraw-type{
+	margin-top:10px;
+}
+</style>
+
+  <!-- Tab panes -->
+  <div class="tab-content minheight">
+    <!-------------------- tab2 -------------------->
+    <div role="tabpanel" class="container tab-pane active" id="tab2">
+        <h3 class="silkpointh3">网关申请</h3>
+        <div class="giro">
+        <form id="defaultForm" class="my-valid">
+            <div class="form-group">
+            	<label class="girolabel wspacing3  text-right">申请人 ：</label>
+                <span class="inputspan girospan">
+                <input class="form-control" placeholder="" name="sqr"
+                	required 
+                >
+                </span>
+            </div>
+            <div class="form-group">
+            	<label class="girolabel wspacing3  text-right">手机号码 ：</label>
+                <span class="inputspan girospan">
+                <input type="tel" class="form-control" placeholder="" name="shouji"
+                	required data-bv-notempty-message="请填写手机号码"
+                >
+                </span>
+            </div>
+            <div class="form-group">
+            	<label class="girolabel wspacing3  text-right">邮箱 ：</label>
+                <span class="inputspan girospan">
+                <input type="email" class="form-control" placeholder="" name="email"
+                	required data-bv-notempty-message="请填写邮箱地址"
+					data-bv-emailaddress-message="请输入正确的邮箱地址,例aa@bb.cc"
+                >
+                </span>
+            </div>
+            <div class="form-group">
+            	<label class="girolabel wspacing3  text-right">网关名称 ：</label>
+                <span class="inputspan girospan">
+                    <input class="form-control" placeholder="" name="wangguanmingc"
+                    required data-bv-notempty-message="请填写网关名称"
+                    >
+                </span>
+            </div>
+            <!--
+        	<div class="form-group">
+            	<label class="girolabel wspacing3  text-right">网址 ：</label>
+                <span class="inputspan girospan">
+                    <input class="form-control" placeholder="" name="wangzhi"
+                    required data-bv-notempty-message="请填写网关地址"
+                    >
+                </span>
+            </div>
+            <div class="form-group">
+            	<label class="girolabel wspacing3  text-right">地址 ：</label>
+                <span class="inputspan girospan">
+                    <input class="form-control" placeholder="" name="dizhi"
+                    required data-bv-notempty-message="请填写地址"
+                    >
+                </span>
+            </div>
+            -->
+            
+            <div class="form-group txfs">
+            	<label class="girolabel wspacing3  text-right">提现方式：</label>
+                <span class="inputspan girospan moenytype">
+                	
+                	<div class="input-group currency">
+                	<select class="form-control">
+                		<option>人民币</option>
+                		<option>港币</option>
+                		<option>台币</option>
+                		<option>欧元</option>
+                		<option>越南盾</option>
+                		<option>美元</option>
+                	</select>
+                	<span class="input-group-btn"><button type="button" class="btn btn-primary" id="add_withdraw">+添加提现方式</button></span>
+                	</div>
+                	<div class="withdraw-type">
+                    <label><input type="checkbox" name="money[]" >支付宝</label>
+                    <label><input type="checkbox" name="money[]" >银联</label>
+                    <label><input type="checkbox" name="money[]" >Visa</label>
+                 	</div>
+                </span>
+            </div>
+						
+						
+            <div class="form-group">
+            	<button type="submit" class="btn btn-primary" style="margin-left: 105px;width: 25%;">提交申请</button>
+            </div>
+        </form>
+        </div>
+    </div>
+    </div>
+    
+  </div><!-- alltabdiv -->
+
+
+<script>
+	var tips = true;
+$(document).ready(function(){
+	$('#add_withdraw').click(function(){
+		//cateinput();
+		$('.txfs').each(function(){//生成前禁用之前的select
+			$(this).find('select').attr('disabled','disabled');
+			$(this).find('select').css('background-color','#ddd')
+		});
+		$('.txfs:last').after(cateinput());//在最后一个框后生成
+		
+	})
+
+})
+function resetselect(){//遍历循环获取select
+	var optionlist = '';
+	var selectedval = $('.currency:last select').val();
+		$('.currency:last select').find('option').each(function(index, element) {
+	       if($(this).val()==selectedval){
+			   return;
+			   }
+		    //console.log($(this).html());
+			optionlist += "<option>"+$(this).html()+"</option>"; 
+	    });
+		return optionlist;
+}	
+
+function resetcheckbox(){//遍历循环获取checkbox
+	var checknum =1;
+		$('.txfs').each(function(){
+				checknum+=1;			
+		});//设定checkbox编号
+	var checklist = '';
+	$('.withdraw-type:last label').each(function(){
+		//console.log($(this).text());
+		checklist += "<label><input type='checkbox' name='money"+checknum+"[]'>"+$(this).text()+"</label>";
+	})
+	return checklist;
+}
+
+function cateinput(beforediv){
+		var scheck = resetcheckbox();//获取到生成的checkbox
+		var soption = resetselect();//获取到生成的select
+		var setcurrency = "<div class='input-group currency'><select class='form-control'>"+soption+"</select><span class='input-group-btn'><button type='button' class='btn btn-danger' onclick='delthis(this)'>-删除</button></span></div>";//加入div
+		var setwithdraw = "<div class='withdraw-type'>"+scheck+"</div>"//加入div
+		var bigdiv = "<div class='form-group txfs'><label class='girolabel wspacing3  text-right'>提现方式：</label><span class='inputspan girospan moenytype'>"+setcurrency+setwithdraw+"</span></div>";//设定最外层大框+其他
+		if(soption==''&&tips==true){//如果没有可选项
+			alert('已经没有可供选择的币种');
+			$('#add_withdraw').attr('disabled','disabled');//禁用按钮
+			tips=false;
+			return false;
+		}
+		return bigdiv;
+
+}
+
+function delthis(_this){
+	console.log($(_this).parents('.txfs').find('select').val());
+	$('.txfs:last').find('select').append("<option>"+$(_this).parents('.txfs').find('select').val()+"</option>")
+	$(_this).parents('.txfs').remove();
+	tips=true;
+	$('#add_withdraw').removeAttr('disabled');
+}
+</script>
+</body>
+</html>
