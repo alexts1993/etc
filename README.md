@@ -1,1 +1,1 @@
-#folder for multiple projects
+#repo for multiple projects
