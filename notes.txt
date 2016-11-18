@@ -19,3 +19,8 @@ git config --global credential.helper manager
 
 *git alias, make it easier to run a command
 git config --global alias.co checkout
+
+
+*create an empty branch
+git checkout --orphan dev		#branch dev
+git rm -rf .					#remove files in the root of branch dev, then you go
