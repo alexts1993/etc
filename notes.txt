@@ -14,7 +14,7 @@ git branch --set-upstream-to=origin/master
 *save credential to a plain file
 git config --global credential.helper store
 *save credential to windows credential manager
-git config --global credential.helper wincred
+git config --global credential.helper manager
 
 
 *git alias, make it easier to run a command
