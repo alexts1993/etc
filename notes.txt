@@ -34,4 +34,4 @@ git clone ~
 git touch index.php
 git add index.php
 git commit -m "Initial commit"
-git push origin master			#after the first push everything will work fine, no push is needed before the first push
+git push origin master			#after the first push everything will work fine, no pull is needed before the first push
