@@ -25,6 +25,8 @@ git config --global alias.co checkout
 git checkout --orphan dev		#branch dev
 git rm -rf .					#remove files in the root of branch dev, then you go
 
+*to work on a remote branch, you'll need to create a local tracking branch
+git checkout -b dev origin/dev
 
 *crreate an git repository
 mkdir repo.git
