@@ -37,3 +37,10 @@ git touch index.php
 git add index.php
 git commit -m "Initial commit"
 git push origin master			#after the first push everything will work fine, no pull is needed before the first push
+
+
+*Configure user information for all local repositories
+git config --global user.name "[name]"
+git config --global user.email "[email address]"
+
+git config --global color.ui auto	#Enables helpful colorization of command line output
