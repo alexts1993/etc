@@ -1,1 +1,1 @@
-#repo for multiple projects
+#repository for multiple projects
